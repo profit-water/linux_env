@@ -1,32 +1,93 @@
+" Basic Settings
+syntax on
+set number
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
 set ruler
 set bs=indent,eol,start
-set number
-
-set ts=4
-set sw=4
-set sts=0
-set expandtab
-
 set nowrap
 set modeline
 set cursorline
 set mouse=a
+set ignorecase
+set hlsearch
+set cindent
+set history=256
+set showmatch
+set hidden
 
+"Color Scheme
+set t_Co=256
+colorscheme molokai
+let g:molokai_original=1 "set background clolor to dark color, 0 is lighter
+
+"Vundle
 set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-"syntax highlight on
-syntax on
-
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vhda/verilog_systemverilog.vim'
 "... add plugin whatever you need...
+Plugin 'vhda/verilog_systemverilog.vim' "verilog_syntax
+Plugin 'preservim/nerdtree'             "nerdtree for file_tree
+Plugin 'vim-airline/vim-airline'        "vim-airline
+Plugin 'vim-airline/vim-airline-themes' "airline themes
+Plugin 'tpope/vim-fugitive'             "help git usage in vim
+Plugin 'scrooloose/syntastic'           "auto-syntax check when file store
+Plugin 'SirVer/ultisnips'               "snippets - auto complete
+Plugin 'honza/vim-snippets'             "|
+Plugin 'garbas/vim-snipmate'            "|
+Plugin 'tomtom/tlib_vim'                "|
+Plugin 'MarcWeber/vim-addon-mw-utils'   "|  
 
 call vundle#end()
 filetype plugin indent on
 
-"Syntax folding
-let g:verilog_syntax_fold_lst = "all"
-set foldmethod=syntax
+"verilog syntax
+autocmd BufNewFile,BufRead *.v,*vs set syntax=verilog
+
+"for vim-airline
+let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#fnamemode = ':t' " only print filename
+let g:airline_highlighting_cache = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme= 'minimalist'
+set laststatus=2 " turn on bottom bar
+
+"The-NERD-Tree
+let g:NERDTreeWinPos = "left"
+"" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+"" short cut
+noremap <C-F> :NERDTreeFind<CR>
+noremap <F2> :NERDTreeToggle<CR>
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+"syntastics - auto syntax checking
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"snippets
+"" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+"" - https://github.com/Valloric/YouCompleteMe
+"" - https://github.com/nvim-lua/completion-nvim
+let g:snipMate = { 'snippet_version' : 1 }
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
