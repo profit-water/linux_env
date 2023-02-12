@@ -30,3 +30,20 @@
     $ git remote add origin https://github.com/profit-water/linux_env.git
     $ git remote set-url origin git@github.com:profit-water/linux_env.git
     ```
+
+## To use color scheme
+
+```
+cd ~/.vim
+git clone https://github.com/tomasr/molokai.git
+cd molokai
+mv colors ~/.vim/
+```
+
+* add follow commands to .bashrc(or cshrc)
+```
+"Color Scheme
+set t_Co=256
+colorscheme molokai
+let g:molokai_original=1 "set background clolor to dark color, 0 is lighter
+```
