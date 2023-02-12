@@ -1,0 +1,4 @@
+alias src='source ~/.bashrc'
+alias v=vim
+alias ll='ls -l'
+alias p='cd ../'
