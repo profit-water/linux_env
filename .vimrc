@@ -28,19 +28,23 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 "... add plugin whatever you need...
-Plugin 'blueyed/vim-diminactive'        "vim-diminactive - for split working
-Plugin 'preservim/nerdtree'             "nerdtree for file_tree
-Plugin 'vim-airline/vim-airline'        "vim-airline
-Plugin 'vim-airline/vim-airline-themes' "airline themes
-Plugin 'tpope/vim-fugitive'             "help git usage in vim
-Plugin 'scrooloose/syntastic'           "auto-syntax check when file store
-Plugin 'SirVer/ultisnips'               "snippets - auto complete
-Plugin 'honza/vim-snippets'             "|
-Plugin 'garbas/vim-snipmate'            "|
-Plugin 'tomtom/tlib_vim'                "|
-Plugin 'MarcWeber/vim-addon-mw-utils'   "|  
-Plugin 'ryanoasis/vim-devicons'         "nerd-fonts for vim-devicons
-Plugin 'morhetz/gruvbox'                "gruvbox colorsheme
+Plugin 'blueyed/vim-diminactive'           " vim-diminactive - for split working
+Plugin 'preservim/nerdtree'                " nerdtree for file_tree
+Plugin 'vim-airline/vim-airline'           " vim-airline
+Plugin 'vim-airline/vim-airline-themes'    " airline themes
+Plugin 'tpope/vim-fugitive'                " help git usage in vim
+Plugin 'scrooloose/syntastic'              " auto-syntax check when file store
+Plugin 'SirVer/ultisnips'                  " snippets - auto complete
+Plugin 'honza/vim-snippets'                " |
+Plugin 'garbas/vim-snipmate'               " |
+Plugin 'tomtom/tlib_vim'                   " |
+Plugin 'MarcWeber/vim-addon-mw-utils'      " |
+Plugin 'ryanoasis/vim-devicons'            " nerd-fonts for vim-devicons
+Plugin 'morhetz/gruvbox'                   " gruvbox colorsheme
+Plugin 'michaeljsmith/vim-indent-object'   " select block that has same indent level
+Plugin 'junegunn/vim-easy-align'           " vim easy align similar to tabulize
+Plugin 'antoinemadec/vim-verilog-instance' " auto-instance maker for verilog
+Plugin 'preservim/nerdcommenter'           " convinience comment
 
 call vundle#end()
 filetype plugin indent on
@@ -50,6 +54,9 @@ set t_Co=256
 let g:gruvbox_contrast_dark="hard"
 set background=dark
 autocmd vimenter * colorscheme gruvbox
+
+"vim-easy-align
+xmap ga <Plug>(EasyAlign)
 
 "for vim-airline
 let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
@@ -77,18 +84,27 @@ noremap <C-l> <C-w>l
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_error_symbol = 'E'
+let g:syntastic_warning_symbol = 'W'
+
+"leg g:syntastic_verilog_checkers = ['iverilod']
+
+"diminactive
+let g:diminactive_enalbe_focus = 1
 
 "snippets
 "" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
 "" - https://github.com/Valloric/YouCompleteMe
 "" - https://github.com/nvim-lua/completion-nvim
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"let g:UltiSnipsEditSplit="vertical"
 let g:snipMate = { 'snippet_version' : 1 }
-let g:UltiSnipsSnippetDirectories = ['UltiSnips']
+"let g:UltiSnipsSnippetDirectories = ['UltiSnips']
