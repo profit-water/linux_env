@@ -1,3 +1,7 @@
+# Complete file/folder names with not consider upper/lower case
+bind -s 'set completion-ignore-case on'
+
+# My alias
 alias src='source ~/.bashrc'
 alias v=vim
 alias ll='ls -l'
