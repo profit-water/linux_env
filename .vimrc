@@ -93,18 +93,32 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = 'E'
 let g:syntastic_warning_symbol = 'W'
 
-"leg g:syntastic_verilog_checkers = ['iverilod']
+let g:syntastic_verilog_checkers = ['iverilog']
+let g:syntastic_cpp_compiler = "g++"
+let g:syntastic_c_compiler = "gcc"
 
 "diminactive
 let g:diminactive_enalbe_focus = 1
 
 "snippets
-"" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
-"" - https://github.com/Valloric/YouCompleteMe
-"" - https://github.com/nvim-lua/completion-nvim
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<tab>"
-"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-"let g:UltiSnipsEditSplit="vertical"
 let g:snipMate = { 'snippet_version' : 1 }
-"let g:UltiSnipsSnippetDirectories = ['UltiSnips']
+
+"NERD Commenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" customize keymapping
+" <c-/> mapping to comment
+nmap <c-_> <plug>NERDCommenterToggle        
+vmap <c-_> <plug>NERDCommenterToggle<CR>gv
