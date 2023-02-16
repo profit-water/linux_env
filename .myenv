@@ -3,3 +3,4 @@ alias v=vim
 alias ll='ls -l'
 alias p='cd ../'
 alias gohome='cd ~/storage/profit.water'
+alias ls=lsd

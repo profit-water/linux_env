@@ -43,6 +43,7 @@ Plugin 'honza/vim-snippets'             "|
 Plugin 'garbas/vim-snipmate'            "|
 Plugin 'tomtom/tlib_vim'                "|
 Plugin 'MarcWeber/vim-addon-mw-utils'   "|  
+Plugin 'ryanoasis/vim-devicons'         "nerd-fonts for vim-devicons
 
 call vundle#end()
 filetype plugin indent on
