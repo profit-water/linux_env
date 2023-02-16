@@ -47,3 +47,12 @@ set t_Co=256
 colorscheme molokai
 let g:molokai_original=1 "set background clolor to dark color, 0 is lighter
 ```
+
+## Starship installaiont for prompt
+
+```
+pkg install getconf
+```
+```
+curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir /data/data/com.termux/files/usr/bin
+```
