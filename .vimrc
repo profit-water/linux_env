@@ -17,7 +17,8 @@ set cindent
 set history=256
 set showmatch
 set hidden
-set encoding=utf-8 "for airline power-font
+set encoding=utf-8  "for airline power-font
+set t_RV=           "for trash-characters & airline top tabline bug fix
 
 "Vundle
 set nocompatible
@@ -45,20 +46,18 @@ call vundle#end()
 filetype plugin indent on
 
 "Colorcheme
-"colorscheme molokai
-"let g:molokai_original = 1 " background color
-set termguicolocrs
+set t_Co=256
 let g:gruvbox_contrast_dark="hard"
 set background=dark
 autocmd vimenter * colorscheme gruvbox
 
-"verilog syntax
-"autocmd BufNewFile,BufRead *.v,*sv set syntax=verilog
-
 "for vim-airline
 let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 let g:airline#extensions#tabline#fnamemode = ':t' " only print filename
+let g:airline_highlighting_cache = 1
 let g:airline_powerline_fonts = 1
+let g:airline_section_u = ''
+let g:airline_section_warning = ''  "do not use last status window
 set laststatus=2 " turn on bottom bar
 
 "The-NERD-Tree
@@ -87,9 +86,9 @@ let g:syntastic_check_on_wq = 0
 "" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
 "" - https://github.com/Valloric/YouCompleteMe
 "" - https://github.com/nvim-lua/completion-nvim
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<tab>"
-"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-"let g:UltiSnipsEditSplit="vertical"
-"let g:snipMate = { 'snippet_version' : 1 }
-"let g:UltiSnipsSnippetDirectories = ['UltiSnips']
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
+let g:snipMate = { 'snippet_version' : 1 }
+let g:UltiSnipsSnippetDirectories = ['UltiSnips']
