@@ -94,6 +94,7 @@ let g:syntastic_error_symbol = 'E'
 let g:syntastic_warning_symbol = 'W'
 
 let g:syntastic_verilog_checkers = ['iverilog']
+let g:syntastic_systemverilog_checkers = ['verilog/iverilog']
 let g:syntastic_cpp_compiler = "g++"
 let g:syntastic_c_compiler = "gcc"
 
