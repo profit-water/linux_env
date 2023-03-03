@@ -4,7 +4,7 @@ bind -s 'set completion-ignore-case on'
 # My alias
 alias src='source ~/.bashrc'
 alias v=vim
-alias ll='ls -l'
+alias ll='ls -altr'
 alias p='cd ../'
 alias gohome='cd ~/storage/profit.water'
 alias ls=lsd
